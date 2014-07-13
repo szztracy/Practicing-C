@@ -12,10 +12,11 @@
 # define numberOfStudent 300
 # define numberOfCourse 300
 double averageScoreDeviationFuc (double studentScore [300][300]);
-
+int studentWhoHasMaxScoreFuc (double studentScore[300][300]);
 int main ()
 {
     double averageScoreDeviation = 0;
+    int studentNumberWhoHasMaxScore = 0;
     double studentScore[numberOfStudent][numberOfCourse];
     for (int studentNumber = 1; studentNumber <= 10; studentNumber++) {
         for (int courseNumber = 1; courseNumber <= 5; courseNumber++) {
@@ -24,7 +25,9 @@ int main ()
     }
     
     averageScoreDeviation = averageScoreDeviationFuc(studentScore);
+    studentNumberWhoHasMaxScore = studentWhoHasMaxScoreFuc(studentScore);
     printf("The averageScoreDeviation is: %lf\n",averageScoreDeviation);
+    printf(" The student who has the maximum score is: %d\n",studentNumberWhoHasMaxScore);
 
 }
 
@@ -48,6 +51,24 @@ double averageScoreDeviationFuc (double studentScore [300][300])
 
     }
     return averageScoreDeviation;
+}
+
+int studentWhohasMaxScoreFuc (double studentScore[300][300])
+{
+    double max;
+    int studentWhoHasMaxScore = 0;
+    int courseThatHasMaxScore = 0;
+    max = studentScore[0][0];
+    for (int studentNumber = 0; studentNumber <= 10; studentNumber++) {
+        for (int courseNumber = 0; courseNumber <= 5; courseNumber++) {
+            if (studentScore[studentNumber][courseNumber] > max) {
+                max = studentScore[studentNumber][courseNumber];
+                studentWhoHasMaxScore = studentNumber;
+                courseThatHasMaxScore = courseNumber;
+            }
+        }
+    }
+    return studentWhoHasMaxScore;
 }
 
 

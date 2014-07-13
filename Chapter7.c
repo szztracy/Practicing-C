@@ -9,7 +9,62 @@
 #include <stdio.h>
 #include <math.h>
 
+/* 7.2 Solve Quadratic Function
+#include <stdio.h>
+#include <math.h>
+void func1(double a, double b, double c);
+double func2(double a, double b, double c);
+double func3x1(double a, double b, double c);
+double func3x2(double a, double b, double c);
+int main ()
+{
+    double a, b, c;
+    printf("Please input three parameters such as a, b, c:\n");
+    scanf("%lf%lf%lf", &a, &b, &c);
+    if ((pow(b, 2) - 4 * a * c) < 0) {
+        func1(a, b, c);
+    }
+    if ((pow(b, 2) - 4 * a * c) == 0) {
+        printf("The solution is:%lf\n",func2(a, b, c));
+    }
+    if ((pow(b, 2) - 4 * a * c) > 0) {
+        printf("The first solutions is:%lf\n", func3x1(a, b, c));
+    }
+    if ((pow(b, 2) - 4 * a * c) > 0) {
+        printf("The second solutions is:%lf\n", func3x2(a, b, c));
+    }
+    return 0;
+    
+}
+void func1(double a, double b, double c)
+{
+    printf("There is no solution!\n");
+}
 
+double func2(double a, double b, double c)
+{
+    double x1 = 0;
+    x1 = (-1 * b) / 2 * a;
+    return x1;
+}
+
+double func3x1(double a, double b, double c)
+{
+    double x1 = 0;
+    x1 = (-1 * b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+    return x1;
+    
+}
+
+double func3x2(double a, double b, double c)
+{
+    double x2 = 0;
+    x2 = (-1 * b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+    return x2;
+    
+}
+
+ */
 
 /* 7.14
 #include <stdio.h>
@@ -34,7 +89,7 @@ int main ()
     studentNumberWhoHasMaxScore = studentWhoHasMaxScoreFuc(studentScore);
     printf("The averageScoreDeviation is: %lf\n",averageScoreDeviation);
     printf(" The student who has the maximum score is: %d\n",studentNumberWhoHasMaxScore);
-    
+   return 0; 
 }
 
 double averageScoreDeviationFuc (double studentScore [300][300])

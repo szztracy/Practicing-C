@@ -64,7 +64,103 @@ double func3x2(double a, double b, double c)
     
 }
 
- */
+*/
+
+/* ReverseMatrix 7.4
+ #include <stdio.h>
+ 
+ int main ()
+ {
+ double matrix [3][3];
+ double t = 0;
+ for (int row = 0; row < 3; row++) {
+ for (int column = 0; column < 3; column++) {
+ scanf("%lf",&matrix[row][column]);
+ }
+ }
+ 
+ for (int row = 0; row < 3; row++) {
+ for (int column = 0; column < row; column++) {
+ if (row != column) {
+ t = matrix[row][column]; matrix[row][column] = matrix[column][row]; matrix[column][row] = t;
+ }
+ }
+ }
+ 
+ for (int row = 0; row < 3; row++) {
+ for (int column = 0; column < 3; column++) {
+ printf(" %lf", matrix[row][column]);
+ }
+ printf("\n");
+ }
+ return 0;
+ }
+ 
+*/
+
+/* 7.8
+ #include <stdio.h>
+ #include <math.h>
+ int main ()
+ {
+ char array [4];
+ for (int iteration = 0; iteration < 4; iteration++) {
+ scanf("%c", &array[iteration]);
+ }
+ 
+ for (int iteration = 0; iteration < 4; iteration++) {
+ printf("%c\n", array[iteration]);
+ }
+ 
+ int iterationJ = 0;
+ for (int iterationI = 0; iterationI < 4; iterationI++) {
+ array[iterationJ] = array [iterationI];
+ iterationJ = iterationJ + 2;
+ }
+ 
+ for (int iterationJ = 0; iterationJ < 8; iterationJ++) {
+ if (iterationJ % 2 == 0) {
+ printf("%c", array[iterationJ]);
+ }
+ if (iterationJ % 2 != 0) {
+ printf(" ");
+ }
+ }
+ 
+ return 0;
+ }
+ 
+*/
+
+/* 7.13 Legendre Function
+ #include <stdio.h>
+ #include <math.h>
+ 
+ double LegendreFunction (int n, double x);
+ int main ()
+ {
+ int n;
+ double x;
+ printf("Please input parameter of Legendre functions n and x:\n");
+ scanf("%d\n",&n);
+ printf("The solution is:%lf\n", LegendreFunction(n, x));
+ return 0;
+ }
+ 
+ double LegendreFunction (int n, double x)
+ {
+ double Pn = 0;
+ if (n == 0) {
+ Pn = 1;
+ }else if (n == 1)
+ Pn = x;
+ else if (n > 1)
+ Pn = LegendreFunction(n-1, x) * x * (2 * n - 1) - (n - 1) * LegendreFunction(n-2, x) / n;
+ return Pn;
+ 
+ }
+ 
+*/
 
 /* 7.14
 #include <stdio.h>
@@ -218,3 +314,39 @@ int studentWhohasMaxScoreFuc (double studentScore[300][300])
  }
  
  */
+
+/* 7.12 NewtonRaphsonAlgorithm
+
+#include <stdio.h>
+#include <math.h>
+
+double NewtonRaphsonAlgorithm (double a, double b, double c, double d);
+
+int main ()
+{
+    double a, b, c, d;
+    printf("Please input parameters of the function a, b, c, d:\n");
+    scanf("%lf%lf%lf%lf", &a, &b, &c, &d);
+    printf("The solution is:%lf\n", NewtonRaphsonAlgorithm(a, b, c, d));
+    return 0;
+}
+
+
+double NewtonRaphsonAlgorithm (double a, double b, double c, double d)
+{
+    float xn, xn1;
+    xn = 1;
+    xn1 = xn - (a * pow(xn, 3) + b * pow(xn, 2) + c * xn + d) / (3 * a * pow(xn, 2) + 2 * b * xn + c);
+    
+    while (fabs(xn - xn1) > 0.0001) {
+        
+        xn = xn1;
+        xn1 = xn - (a * pow(xn, 3) + b * pow(xn, 2) + c * xn + d) / (3 * a * pow(xn, 2) + 2 * b * xn + c);
+    }
+    
+    
+    return xn1;
+    
+}
+
+*/

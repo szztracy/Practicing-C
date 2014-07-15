@@ -7,36 +7,37 @@
 //
 
 
-/* 7.8
+
 #include <stdio.h>
 #include <math.h>
+
+#warning Change Compacity of Arrays here
+#define CompacityOfArray 300
+
 int main ()
 {
-    char array [4];
-    for (int iteration = 0; iteration < 4; iteration++) {
-        scanf("%c", &array[iteration]);
+    static char inputArray[CompacityOfArray]; //Input a Hex
+    int length = 0;
+    int sum = 0;
+    char c = '0';
+    while (c != '\n') {
+        c = getchar();
+        inputArray[length] = c;
+        length++;
     }
     
-    for (int iteration = 0; iteration < 4; iteration++) {
-        printf("%c\n", array[iteration]);
+    length--;
+   
+    //Translate Hex to Decimal
+    for (int iteration = 0; iteration < length; iteration++) {
+        if (inputArray[iteration] > 47 && inputArray[iteration] < 58 ) {
+            inputArray[iteration] -= 48;
+        }else if (inputArray[iteration] > 64 && inputArray[iteration] < 71)
+            inputArray[iteration] -= 55;
+        else
+            printf("Error Input!\n");
+        sum += inputArray[iteration] * pow(16, length - iteration - 1);
     }
-    
-    int iterationJ = 0;
-    for (int iterationI = 0; iterationI < 4; iterationI++) {
-        array[iterationJ] = array [iterationI];
-        iterationJ = iterationJ + 2;
-    }
-    
-    for (int iterationJ = 0; iterationJ < 8; iterationJ++) {
-        if (iterationJ % 2 == 0) {
-            printf("%c", array[iterationJ]);
-        }
-        if (iterationJ % 2 != 0) {
-            printf(" ");
-        }
-    }
-    
+    printf("%d\n", sum);
     return 0;
 }
-
-*/

@@ -98,6 +98,89 @@ double func3x2(double a, double b, double c)
  
 */
 
+/* 7.5 Reverse Array
+#include <stdio.h>
+
+#define capacityOfArray 300
+int main(int argc, const char * argv[])
+{
+    char array[capacityOfArray];
+    
+    printf("Please input array:\n");
+    char c = '0';
+    int lengthOfArray = 0;
+    while (c != '\n') {
+        array [lengthOfArray] = c;
+        c = getchar();
+        lengthOfArray++;
+    }
+    
+    lengthOfArray--;
+    printf("The reversed array is:\n");
+    for (int iteration = lengthOfArray; iteration >= 1;iteration--) {
+        printf("%c", array[iteration]);
+    }
+    printf("\n");
+    return 0;
+}
+*/
+
+/* 7.7
+#define CapacityOfArray 300
+int main ()
+{
+    char Array1 [CapacityOfArray]; //Input the first array
+    char Array2 [CapacityOfArray];// Input the second array
+    int lengthOfArray1 = 0;
+    int lengthOfArray2 = 0;
+    
+    printf("Please input the first array:\n");
+    char c1 = '0';
+    while (c1 != '\n') {
+        Array1[lengthOfArray1] = c1;
+        c1 = getchar();
+        lengthOfArray1++;
+    }
+    
+    printf("Please input the second array:\n");
+    char c2 = '0';
+    while (c2 != '\n') {
+        Array2[lengthOfArray2] = c2;
+        c2 = getchar();
+        lengthOfArray2++;
+    }
+    lengthOfArray1--;
+    lengthOfArray2--;
+    
+    char Array3 [CapacityOfArray];// Create the third array
+    
+    // Copy the vowel letters to the third array
+    int lengthOfArray3 = 1;
+    
+    for (int iteration = 1; iteration <= lengthOfArray2; iteration++) {
+        if (Array2[iteration] == 65 || Array2[iteration] == 69 || Array2[iteration] == 73 || Array2[iteration] == 79 || Array2[iteration] == 85 || Array2[iteration] == 97 || Array2[iteration] == 101 || Array2[iteration] == 105 || Array2[iteration] == 111 || Array2[iteration] == 117) {
+            Array3[lengthOfArray3] = Array2[iteration];
+            lengthOfArray3++;
+        }
+    }
+    lengthOfArray3--;
+    
+    //Copy the third array to the first array
+    for (int iteration = 1; iteration <= lengthOfArray3; iteration++) {
+        Array1[lengthOfArray1 + iteration] = Array3[iteration];
+    }
+    
+    //Output the first array
+    printf("Results:\n");
+    for (int iteration = 1; iteration <= lengthOfArray1 + lengthOfArray3; iteration++) {
+        printf("%c", Array1[iteration]);
+    }
+    
+    printf("\n");
+}
+
+*/
+
 /* 7.8
  #include <stdio.h>
  #include <math.h>
@@ -265,55 +348,8 @@ int studentWhohasMaxScoreFuc (double studentScore[300][300])
  
  }
  
- */
+*/
 
-
-/* 7.11 Bubble function for arranging characters
- int main ()
- {
- char bubble ();
- char characterArray [10];
- printf("  Please input an array: ");
- 
- for (int iteration = 0; iteration < 10; iteration++) {
- scanf("%c", &characterArray[iteration]);
- }
- 
- bubble (characterArray);
- 
- 
- }
- 
- 
- char bubble (a)
- 
- char a[10];
- 
- {
- char  t;
- 
- for (int iterationJ = 0; iterationJ < 9; iterationJ++) {
- 
- for (int iterationK = 0; iterationK < 9  - iterationJ; iterationK++) {
- 
- if (a[iterationK] >  a[iterationK + 1]) {
- t = a[iterationK];  a[iterationK] = a [iterationK + 1]; a[iterationK + 1] =t;
- }
- }
- }
- 
- printf("  the sorted numbers:\n");
- 
- for (int iterationJ = 0; iterationJ < 10; iterationJ++) {
- printf("  %c",a [iterationJ]);
- }
- 
- printf("\n");
- return 0;
- 
- }
- 
- */
 
 /* 7.12 NewtonRaphsonAlgorithm
 

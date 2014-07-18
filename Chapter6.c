@@ -294,5 +294,35 @@
  
  */
 
+/* 6.13
+#define CapacityOfArray 300
+int main ()
+{
+    char Array[CapacityOfArray];//input an array
+    int lengthOfArray = 0;
+    
+    printf("Please input an array:\n");
+    char c = '0';
+    while (c != '\n') {
+        Array[lengthOfArray] = c;
+        c = getchar();
+        lengthOfArray++;
+    }
+    lengthOfArray--;
+    printf("Result:\n");
+    // translate A to Z, B to Y, a to z, b to y and so on. Keep other letters the same with inputs
+    for (int iteration = 1; iteration <= lengthOfArray; iteration++) {
+        if ((Array[iteration] > 64 && Array[iteration] < 91)) {
+            Array[iteration] = 155 - Array[iteration];
+        }
+        if (Array[iteration] > 96 && Array[iteration] < 123) {
+            Array[iteration] = 219 - Array[iteration];
+        }
+        printf("%c", Array[iteration]);
+    }
+    printf("\n");
+    return 0;
+}
 
+ */
 
